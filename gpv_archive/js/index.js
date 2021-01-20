@@ -441,7 +441,7 @@ $(document).ready(function() {
 		parseInt(getParameterByName(QUERY_KEY_HOUR)));
 	resetGpvImage();
 	//resetGpvFrame();
-	resetUrl();
+	//resetUrl();
 
 	//
 	// mouse events
