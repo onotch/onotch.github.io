@@ -215,7 +215,7 @@ function initAreaAndTypeOptions() {
 
 function initYearOptions() {
 	const thisYear = (new Date()).getFullYear();
-	for (var i = START_YEAR; i <= thisYear; i++) {
+	for (var i = START_YEAR; i <= (thisYear + 1); i++) {
 		$(ELEM_NAME_SELECT_YEAR).append('<option value="' + i + '">' + i + '</option>');
 	}
 }
