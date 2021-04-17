@@ -425,7 +425,7 @@ function shouldActWheel() {
 //
 // on document load
 //
-$(document).ready(function() {
+window.onload = function() {
 
 	//
 	// initialize
@@ -710,4 +710,4 @@ $(document).ready(function() {
 		}
 	});
 
-});
+};
