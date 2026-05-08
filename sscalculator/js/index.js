@@ -145,9 +145,19 @@ $(document).ready(function() {
 		startTimer();
 	});
 
-	$('.GlyphIconClose').mousedown(function(event) {
+	$('#CloseTimer').mousedown(function(event) {
 		event.preventDefault();
 		closeTimer();
+	});
+
+	$('#Info').mousedown(function(event) {
+		event.preventDefault();
+		openScreen('#InfoContainer');
+	});
+
+	$('#CloseInfo').mousedown(function(event) {
+		event.preventDefault();
+		closeScreen('#InfoContainer');
 	});
 
 	//
@@ -498,8 +508,7 @@ $(document).ready(function() {
 			$('#TimeValue').text(getTimerText(time));
 			$('#Finished').hide();
 			$('#Timer').show();
-			$('#TimerContainer').css('display', 'flex')
-				.stop(true, true).animate({'opacity':1}, ANIMATE_DURATION_OPACITY, 'linear');
+			openScreen('#TimerContainer');
 			clearTimer();
 			startPauseTimer();
 		}
@@ -522,7 +531,7 @@ $(document).ready(function() {
 	function closeTimer() {
 		time = 0;
 		clearTimer();
-		$('#TimerContainer').stop(true, true).fadeOut(ANIMATE_DURATION_OPACITY);
+		closeScreen('#TimerContainer');
 	}
 
 	function updateTimer() {
@@ -538,6 +547,15 @@ $(document).ready(function() {
 	function clearTimer() {
 		clearInterval(timerId);
 		timerId = null;
+	}
+
+	function openScreen(id) {
+		$(id).css('display', 'flex')
+			.stop(true, true).animate({'opacity':1}, ANIMATE_DURATION_OPACITY, 'linear');
+	}
+
+	function closeScreen(id) {
+		$(id).stop(true, true).fadeOut(ANIMATE_DURATION_OPACITY);
 	}
 
 });
