@@ -488,7 +488,7 @@ $(document).ready(function() {
 				time = SS_VALUES[indexSs] * ND_VALUES[indexNd1] * ND_VALUES[indexNd2] * ND_VALUES[indexNd3];
 				break;
 			case ID_SS_ND:
-				time = MSS_VALUES[indexSsNd];
+				time = SS_VALUES[indexSsNd];
 				break;
 		}
 
