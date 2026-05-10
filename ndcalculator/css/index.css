@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+@font-face{
+    font-family:'Exo';
+    src:url('../fonts/Exo.woff2') format('woff2');
+}
+
+@font-face{
+	font-family:'Glyphicons Halflings';
+	src:url('../fonts/glyphicons-halflings-regular.ttf') format('truetype');
+}
+
+@keyframes blinkStrong {
+	0%   { color: rgba(64,64,64,1); }
+	100% { color: rgba(255,255,255,1); }
+}
+
+@keyframes blinkWeak {
+	0%   { color: rgba(192,192,192,1); }
+	100% { color: rgba(255,255,255,1); }
+}
+
+ html {
+    font-size: 4vw;
+}
+
+body, div, h2, p, img{
+	margin:0;
+	padding:0;
+    font-size: 1rem;
+}
+
+body{
+	overflow: scroll;
+	background-color: rgba(0,0,0,1);
+}
+
+h2, p{
+	text-align: center;
+	line-height: 100%;
+	font-family: 'Exo', sans-serif;
+}
+
+h2{
+	margin: 1.5rem 0rem 0.5rem;
+	font-size: 1.5rem;
+	color: rgba(255,255,255,0.5);
+	font-weight: normal;
+}
+
+a{
+    text-decoration: none;
+}
+
+hr{
+	width: 80%;
+	height: 1px;
+	border: none;
+	background-color: rgba(96,96,96,1);
+}
+
+#NdContainer h2{
+	margin-top: 0rem;
+}
+
+.Value{
+	color: rgba(255,255,255,1);
+	font-size: 2rem;
+}
+
+.SubValue{
+	margin: 0.2rem 0rem 0rem;
+	color: rgba(255,255,255,0.5);
+	font-size: 1rem;
+}
+
+#Container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#NdContainer{
+	padding-top: 0.01rem;
+	background-color: rgba(255,255,255,0.1);
+}
+
+#Nd1Container{
+	padding: 1rem 0rem;
+}
+
+/*
+ * Glyph Icon
+ */
+ .GlyphIcon{
+	color: rgba(128,128,128,1);
+	font-size: 3rem;
+	font-style: normal;
+	font-weight: normal;
+	font-family: 'Glyphicons Halflings';
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.GlyphIcon span{
+	position: relative;
+	display: inline-block;
+	margin: 0rem 1.5rem;
+}
+
+.GlyphIconCircleArrowUp:before {   content: "\e133"; }   /* e133 e027 */
+.GlyphIconCircleArrowDown:before { content: "\e134"; }   /* e134 e026 */
+.GlyphIconStart:before {           content: "\e072"; }   /* e072 e023 */
+.GlyphIconPause:before {           content: "\e073"; }
+.GlyphIconStop:before {            content: "\e074"; }
+.GlyphIconRestart:before {         content: "\e030"; }
+.GlyphIconClose:before {           content: "\e083"; }   /* e088 */
+.GlyphIconInfo:before {            content: "\e086"; }
+
+.RotateUp{
+	transform: rotate(0deg);
+	transition: transform 0.2s;
+	transition-timing-function: ease-out;
+}
+.RotateDown{
+	transform: rotate(180deg);
+	transition: transform 0.2s;
+	transition-timing-function: ease-out;
+}
+
+#ArrowIcon{
+	margin: 1.2rem 0rem;
+}
+
+/*
+ * Progress Bar
+ */
+.ProgressBar{
+	width: 100%;
+	height: 2px;
+	margin: 0.4rem 0rem 0rem;
+	background-color: rgba(255,255,255,0.2);
+}
+
+.ProgressBar span{
+	display: block;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 0px;
+	height: 2px;
+	background-color: rgba(255,255,255,0.7);
+}
+
+#SsNdProgressBar{
+	opacity: 0.2;
+}
+
+/*
+ * Footer
+ */
+ #Footer{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.5rem 0rem;
+	background-color: rgba(0,0,0,1);
+}
+
+#Footer p{
+    font-size: 2.5rem;
+    color: rgba(255,255,255,0.5);
+}
+
+.Popup{
+	display: none;
+    position: fixed;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.BlinkSlow{
+	animation: blinkStrong 1s ease-out infinite alternate;
+}
+
+.BlinkFast{
+	animation: blinkWeak 0.5s ease-out infinite alternate;
+}
+
+/*
+ * Timer
+ */
+#TimerContainer p{
+	margin: 3rem 0rem;
+	font-size: 3rem;
+}
+
+#TimeValue{
+	color: rgba(255,255,255,1);
+}
+
+#StartTimer{
+	opacity: 0.4;   /* disable state */
+}
+
+/*
+ * Info
+ */
+#InfoContainer p,
+#InfoContainer a{
+		color: rgba(192,192,192,1);
+}
+
+#InfoContainer hr{
+	margin: 3rem 0rem;
+}
+
+#InfoContainer #Title{
+	font-size: 1.8rem;
+}
+
+#InfoContainer #Version{
+	margin-top: 1.2rem;
+	font-size: 1.2rem;
+	color: rgba(128,128,128,1);
+}
+
+#InfoContainer #Developer{
+	font-size: 1.8rem;
+}
+
+#InfoContainer #Social{
+	margin-top: 2rem;
+}
+
+#InfoContainer .GlyphIcon{
+	margin-top: 4rem;
+}
+
+#InfoContainer #CloseInfo{
+	color: rgba(128,128,128,1);
+}
+
+#InfoContainer svg{
+    width: 2.6rem;
+    height: 2.6rem;
+    margin: 0rem 1.5rem;
+    fill: currentColor;
+}
