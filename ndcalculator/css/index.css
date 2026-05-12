@@ -87,8 +87,15 @@ hr{
 	background-color: rgba(255,255,255,0.1);
 }
 
-#Nd1Container{
+#NdContainer div{
 	padding: 1rem 0rem;
+	border-top: 1px solid rgba(255,255,255,0.2);
+	background-color: rgba(255,255,255,0.05);
+}
+
+#NdContainer div:first-child{
+	border-top: none;
+	background-color: rgba(255,255,255,0);
 }
 
 /*

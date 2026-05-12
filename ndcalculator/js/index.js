@@ -186,9 +186,48 @@ $(document).ready(function() {
 	}
 
 	function resetNd() {
-		var nd = SS_VALUES[indexSsNd] / SS_VALUES[indexSs];
-		$('#Nd1Value').text(nd);
-		$('#OdStops1Value').text(getOdStopsText(nd));
+		const nd = SS_VALUES[indexSsNd] / SS_VALUES[indexSs];
+		const bestNd = findBestNDCombination(nd);
+
+		$('#NdValue').text(nd);
+		$('#OdStopsValue').text(getOdStopsText(nd));
+		$('#Nd1Value').text(getNdText(bestNd.nd1));
+		$('#OdStops1Value').text(getOdStopsText(bestNd.nd1));
+		$('#Nd2Value').text(getNdText(bestNd.nd2));
+		$('#OdStops2Value').text(getOdStopsText(bestNd.nd2));
+		$('#Nd3Value').text(getNdText(bestNd.nd3));
+		$('#OdStops3Value').text(getOdStopsText(bestNd.nd3));
+	}
+
+	function findBestNDCombination(nd) {
+		let best = null;
+		let minError = Infinity;
+	
+		for (let i = 0; i < ND_VALUES.length; i++) {
+			for (let j = i; j < ND_VALUES.length; j++) {	
+				for (let k = j; k < ND_VALUES.length; k++) {	
+					const nd1 = ND_VALUES[k];
+					const nd2 = ND_VALUES[j];
+					const nd3 = ND_VALUES[i];
+					const product = nd1 * nd2 * nd3;
+					const error = Math.abs(product - nd);
+	
+					if (error < minError) {
+						minError = error;
+	
+						best = {
+							nd1,
+							nd2,
+							nd3,
+							product,
+							error
+						};
+					}
+				}
+			}
+		}
+	
+		return best;
 	}
 
 	function resetSsNd(offset) {
@@ -234,6 +273,10 @@ $(document).ready(function() {
 			return h + UNIT_HR + m + s;
 		}
 		return sec.toFixed(1) + UNIT_SEC;
+	}
+
+	function getNdText(nd) {
+		return (nd > 1) ? nd : ND_VALUE_INVALID;
 	}
 
 	function getOdStopsText(nd) {
